@@ -1,0 +1,128 @@
+h1 {
+	font-size: 60px;
+	font-family: "Nikkyou Sans";
+	color: #66421f;
+	text-align: center;
+}
+
+p{
+	font-size: 60px;
+	font-family: "Nikkyou Sans";
+}
+
+body {
+
+	background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+}
+
+.Login-form {
+	margin-left: 520px;
+	background: white;
+	border-radius: 1px;
+	text-align: center;
+	width: 300px;
+	height: 400px;
+}
+
+.Login-form input[type=text] {
+	font: 20px/20px "Nikkyou Sans";
+	box-sizing: border-box;
+	width: 80%;
+	margin-top: 50px;
+	padding-left: 10px;
+	margin-right: 40px;
+	transition: 0.3s;
+	border: 1px solid #1b2538;
+	border-radius: 1spx;
+	outline: none;
+	height: 30px;
+}
+
+.Login-form input[type=password] {
+	font: 20px/20px "Nikkyou Sans";
+	box-sizing: border-box;
+	width: 80%;
+	margin-top: 40px;
+	margin-right: 40px;
+	padding-left: 10px;
+	transition: 0.3s;
+	border: 1px solid #1b2538;
+	border-radius: 1px;
+	outline: none;
+	height: 30px;
+}
+
+h2 {
+	font-family: "S2G海フォント";
+	margin-top: 10px;
+	padding-top: 20px;
+	padding-right: 200px;
+	height: 0px;
+	width: 350px;
+	font-size: 15px;
+	text-align: left;
+}
+
+.button {
+	margin-right: 40px;
+	margin-top: 20px;
+	background: #9941D8;
+	color: #ffffff;
+	font: 20px/20px "Nikkyou Sans";
+	border-radius: 5px;
+	border: 2px solid #9941D8;
+	font: 20px/20px "Nikkyou Sans"; /* 枠の指定 */
+	text-aligin: center;
+	font-size: 18pt; /* 文字サイズ */
+}
+.button:hover{
+	  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+  border: 10px solid  #000066; ;
+}
+
+
+header{
+	margin:0;
+	height:100%;
+	width:100%;
+	background-image:url("../img/西井1.jpg")
+
+}
+
+
+
+
+
+/*追加*/
+body, html, main {
+    /* important */
+    height: 100%;
+    margin:0px;
+}
+
+.cd-fixed-bg {
+	margin:0;
+    min-height: 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cd-fixed-bg.cd-bg-1 {
+  background-image: url("../img/西井1.jpg");
+}
+.cd-fixed-bg.cd-bg-2 {
+  background-image: url("../img/西井1.jpg");
+}
+.cd-fixed-bg.cd-bg-3 {
+  background-image: url("../img/西井1.jpg");
+}
+.cd-fixed-bg.cd-bg-4 {
+  background-image: url("../img/西井1.jpg");
+}
+
+.cd-scrolling-bg {
+    min-height: 100%;
+}
