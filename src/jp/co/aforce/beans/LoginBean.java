@@ -5,6 +5,7 @@ public class LoginBean implements Serializable{
 	private String password;
 	private String username;
 	private String error;
+	private String member_name;
 	//引数なしのデフォルトコンストラクタ
 	public LoginBean() {
 	}
@@ -29,6 +30,16 @@ public class LoginBean implements Serializable{
 	public void setUsername(String username) {
 		this.username =username;
 	}
+
+	//★ゲッター(メンバーネーム)
+		public String getMember_name() {
+			return member_name;
+			}
+		//★セッター（ユーザネーム）
+		public void setMember_name(String member_name) {
+			this.member_name =member_name;
+		}
+
 
 	//★ゲッター(エラーメッセージ)
 		public String getEmsg() {

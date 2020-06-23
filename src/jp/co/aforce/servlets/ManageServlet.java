@@ -66,7 +66,7 @@ public class ManageServlet extends HttpServlet {
 
 		} else {
 			//★boolean result 変数作る。
-			boolean result = registMModel.regist_Check(item_id, item_name, item_price, item_category);
+			boolean result = registMModel.regist_Check(item_id, item_name, item_price, item_category, item_id);
 
 			if (result) {
 				//★３入力チェック処理②（成功）

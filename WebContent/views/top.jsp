@@ -16,8 +16,6 @@
 <!doctype html>
 <html>
 <head>
-
-
 <!-- CSS -->
 <link href="<c:url value="/css/TOP.css"/>" rel="stylesheet">
 
@@ -27,71 +25,34 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- スリック -->
+
+<link rel="stylesheet" type="text/css" href="slick/slick-1.8.1/slick/slick.css">
+
 <!-- タイトル -->
 <title>ECサイトTOPページ</title>
 </head>
-
-
-
-<body>
-	<main>
-		<div class="cd-fixed-bg cd-bg-1">
-			<h1>TOP画面</h1>
-		</div>
-
-<jsp:include page="header.jsp" />
-
-		<div class="cd-scrolling-bg cd-color-1">
-			<div class="cd-container">
-				<p>ランキング画面</p>
-			</div>
-		</div>
-
-		<div class="cd-fixed-bg cd-bg-2">
-			<h1>アイテム</h1>
-		</div>
-
-		<div class="cd-scrolling-bg cd-color-2">
-			<div class="cd-container">
-				<p>カテゴリー</p>
-			</div>
-		</div>
-	</main>
-
-
-	<title>アイテム一覧ページ</title>
-
-</head>
 <body>
 	<jsp:include page="/views/header.jsp" />
-	<h3>商品一覧</h3>
+<div class="fixed-bg bg01">
+<div class=font2><h2>サマーセール開催中</h2></div>
+	<div class=font><h1>  <br><br>TOP<br>SITE</h1></div>
+</div>
 
-	<c:forEach items="${getItems}" var="getItems">
-		<form action="/ECSite/ItemServlet" method="POST">
+<div class="scroll-bg bg-color01">
+	<jsp:include page="/views/menu.jsp" />
 
-			商品id:
-			<c:out value="${getItems.item_id}" />
-			<br> 商品名:
-			<c:out value="${getItems.item_name}" />
-			<br> 価格:
-			<c:out value="${getItems.item_price}" />
-			<br>
+	<div class=font1><h1><br><br>PICK UP</h1></div>
 
-			<img src="${pageContext.request.contextPath}/img/${getItems.img}" />
+</div>
 
-			個数: <select name="quantity">
-				<option value="1">1
-				<option value="2">2
-				<option value="3">3
-				<option value="4">4
-				<option value="5">5
-			</select> 個<br> <input type="submit" value="カートに追加">
-		</form>
-	</c:forEach>
+<div class="fixed-bg bg02">
+</div>
 
 
-
-	<script src="/js/EC.js"></script>
-
+<!-- スリック -->
+<script type="text/javascript" src="slick/slick-1.8.1/slick/slick.min.js"></script>
+	<script src="/ECSite/WebContent/js/header.js"></script>
 </body>
 </html>

@@ -38,17 +38,13 @@ public class ItemServlet extends HttpServlet {
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
 
-		ItemModel itemModel = new ItemModel();
-		List<ItemBean> getItems = itemModel.getItems();
-		request.setAttribute("getItems", getItems);
-
 		// ★１、ユーザによって入力された情報を取り出す
-		String item_price = request.getParameter("item_price");
+		/*String item_price = request.getParameter("item_price");
 		String item_name = request.getParameter("item_name");
 		String item_category = request.getParameter("item_category");
 		String item_id = request.getParameter("item_id");
 		String img = request.getParameter("img");
-		// ★２、取り出した情報を RegistMBean に格納する
+		// ★２、取り出した情報をItemBean に格納する
 		ItemBean itemBean = new ItemBean();
 		itemBean.setItem_price(item_price);
 		itemBean.setItem_name(item_name);
@@ -61,7 +57,41 @@ public class ItemServlet extends HttpServlet {
 		itemBean.getItem_category();
 		itemBean.getItem_id();
 		itemBean.getImg();
+		*/
 
+		//リクエストとってくる
+		String getItems = request.getParameter("getItems");
+
+		ItemModel itemModel = new ItemModel();
+		//irwEMpty空文字もしくはnullだとtrueが返る↓
+		if (getItems==null||getItems==""/*.isEmpty()*/) {
+			List<ItemBean> getcategory = itemModel.getItems();
+			//"getitems"にgetcategoryにいれた値が入る。
+			request.setAttribute("getItems", getcategory);
+
+
+		} else {
+			List<ItemBean> getcategory = itemModel.category(getItems);
+			request.setAttribute("getItems", getcategory);
+
+		}
+
+		//★ItemMOdelをインスタンス化
+
+		//List<ItemBean> getItems = itemModel.getItems();
+
+		//★カテゴリ検索
+		//item_category＝空の時はテーブルのカラム全件表示
+		//if (item_category == "") {
+		//request.setAttribute("getItems", getItems);
+		//item_category＝ファッシションのカラムを全件表示
+		//} else  {
+		//item_category＝該当カテゴリのカラムを全件表示
+
+		//getcategoryがif文の外だと使えないからnewする必要がある。
+		//List<ItemBean> getcategory = new ArrayList<ItemBean>();
+		//request.setAttribute("getItems", getcategory);
+		//}
 
 		String forward_jsp = "/views/itemAll.jsp";
 		RequestDispatcher rDispatcher = request.getRequestDispatcher(forward_jsp);

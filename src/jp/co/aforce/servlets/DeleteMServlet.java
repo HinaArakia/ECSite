@@ -1,4 +1,3 @@
-//★商品変更★
 
 package jp.co.aforce.servlets;
 
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.aforce.beans.ItemBean;
+import jp.co.aforce.models.DeleteMModel;
 import jp.co.aforce.models.ItemModel;
 
 // 親クラスに HttpServlet を指定する
@@ -25,7 +25,7 @@ public class DeleteMServlet extends HttpServlet {
 			throws IOException, ServletException {
 		System.out.println("get request");
 		//フォワード
-		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/deleteM.jsp");
+		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/DeleteM.jsp");
 		rDispatcher.forward(request, response);
 	}
 
@@ -38,9 +38,14 @@ public class DeleteMServlet extends HttpServlet {
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
 
+		//一覧表示
 		ItemModel itemModel = new ItemModel();
 		List<ItemBean> getItems = itemModel.getItems();
 		request.setAttribute("getItems", getItems);
+
+		//アップデート
+		//モデルをインスタンス化
+		DeleteMModel deleteMModel = new DeleteMModel();
 
 		// ★１、ユーザによって入力された情報を取り出す
 		String item_price = request.getParameter("item_price");
@@ -61,6 +66,9 @@ public class DeleteMServlet extends HttpServlet {
 		itemBean.getItem_category();
 		itemBean.getItem_id();
 		itemBean.getImg();
+
+
+		deleteMModel.delete(item_id, item_name, item_price, item_category, img);
 
 
 		String forward_jsp = "/views/deleteM.jsp";

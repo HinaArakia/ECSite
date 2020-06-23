@@ -8,21 +8,20 @@ import jp.co.aforce.beans.ItemBean;
 import jp.co.aforce.util.DBUtil;
 
 public class ChangeMModel {
+
+
+	//★DBから商品テーブルの情報をselectする
 	public List<ItemBean> getItems() {
 		//実行結果を格納する変数
 		ResultSet rs = null;
 		//listをインスタンス化
 		List<ItemBean> getItems = new ArrayList<ItemBean>();
-
-
 		try {
 			//DBに接続するための手続き
 			DBUtil.makeConnection();
 			DBUtil.makeStatement();
-
 			//セレクト文
 			String SQL = "SELECT * FROM `items` ";
-
 			//SELECTを実行する
 			rs = DBUtil.execute(SQL);
 			//取得した結果を全件出力する
@@ -34,9 +33,7 @@ public class ChangeMModel {
 				itemBean.setItem_id(rs.getString("item_id"));
 				itemBean.setImg(rs.getString("img"));
 				getItems.add(itemBean);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -44,5 +41,4 @@ public class ChangeMModel {
 		}
 		return getItems;
 	}
-
 }

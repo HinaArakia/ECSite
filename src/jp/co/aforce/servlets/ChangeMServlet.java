@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.aforce.beans.ItemBean;
 import jp.co.aforce.models.ItemModel;
+import jp.co.aforce.models.RegistMModel;
 
 // 親クラスに HttpServlet を指定する
 @SuppressWarnings("serial") // これがないと waring がでる
@@ -38,9 +39,15 @@ public class ChangeMServlet extends HttpServlet {
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
 
+		//一覧表示
 		ItemModel itemModel = new ItemModel();
 		List<ItemBean> getItems = itemModel.getItems();
 		request.setAttribute("getItems", getItems);
+
+		//アップデート
+		//モデルをインスタンス化
+		RegistMModel registMModel = new RegistMModel();
+
 
 		// ★１、ユーザによって入力された情報を取り出す
 		String item_price = request.getParameter("item_price");
@@ -61,7 +68,6 @@ public class ChangeMServlet extends HttpServlet {
 		itemBean.getItem_category();
 		itemBean.getItem_id();
 		itemBean.getImg();
-
 
 		String forward_jsp = "/views/changeM.jsp";
 		RequestDispatcher rDispatcher = request.getRequestDispatcher(forward_jsp);

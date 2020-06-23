@@ -19,6 +19,16 @@
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
 
+
+<servlet>
+    <servlet-name>SortServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.SortServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SortServlet</servlet-name>
+    <url-pattern>/SortServlet</url-pattern>
+  </servlet-mapping>
+
  <servlet>
     <servlet-name>ItemServlet</servlet-name>
     <servlet-class>jp.co.aforce.servlets.ItemServlet</servlet-class>
@@ -58,7 +68,7 @@
 
  <servlet>
     <servlet-name>DeleteMServlet</servlet-name>
-    <servlet-class>jp.co.aforce.servlets.RegistMServlet</servlet-class>
+    <servlet-class>jp.co.aforce.servlets.DeleteMServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteMServlet</servlet-name>
@@ -73,6 +83,44 @@
     <servlet-name>ChangeMServlet</servlet-name>
     <url-pattern>/ChangeMServlet</url-pattern>
   </servlet-mapping>
+
+<servlet>
+    <servlet-name>CartInServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.CartInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartInServlet</servlet-name>
+    <url-pattern>/CartInServlet</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>SerchServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.SerchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SerchServlet</servlet-name>
+    <url-pattern>/SerchServlet</url-pattern>
+  </servlet-mapping>
+
+
+<servlet>
+    <servlet-name>ItemViewServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.ItemViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItemViewServlet</servlet-name>
+    <url-pattern>/ItemViewServlet</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>UpdateServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateServlet</servlet-name>
+    <url-pattern>/UpdateServlet</url-pattern>
+  </servlet-mapping>
+
 
   <resource-ref>
   	<res-ref-name>jdbc/test</res-ref-name>

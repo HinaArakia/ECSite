@@ -2,6 +2,12 @@
 <!-- タグライブラリの使用を宣言（必要に応じて）  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
+<jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean" scope= "request" />
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -12,27 +18,34 @@
 <link href="<c:url value="/css/member.css" />" rel="stylesheet">
 
 
+<!-- jquery呼び出し -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
 <title>メニュー画面</title>
 </head>
 <body>
-	メニュー画面
-	<div class=menu-form>
-		<input type="submit" value="商品情報新規登録" name="regist"
-			onclick="location.href='/ECSite/RegistMServlet'"> <br> <input
 
 
-			type="submit" value="商品商品情報変更" name="change"
-			onclick="location.href='/ECSite/ChangeMServlet'"><br> <input
 
+		<form method="get" name="form1" action="/ECSite/RegistMServlet">
+		<a href="javascript:form1.submit()">商品登録</a>
 
-			type="submit" value="商品情報削除" name="delete"
-			onclick="location.href='/ECSite/DeleteMServlet'"> <input
+	</form>
 
+	<form method="post" name="form2" action="/ECSite/ChangeMServlet">
+		<a href="javascript:form2.submit()">商品変更</a>
 
-			type="submit" value="ログアウト" name="regist"
-			onclick="location.href='/ECSite/LogoutServlet'">
+	</form>
 
-	</div>
+	<form method="post" name="form3" action="/ECSite/DeleteMServlet">
+		<a href="javascript:form3.submit()">商品削除</a>
+	</form>
 
+	<form method="get" name="form4" action="/ECSite/LogoutServlet">
+		<a href="javascript:form4.submit()">ログアウト</a>
+	</form>
+
+	<script src="/js/header.js"></script>
 </body>
 </html>

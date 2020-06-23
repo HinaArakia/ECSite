@@ -78,7 +78,7 @@ public class RegistMServlet extends HttpServlet {
 			} else {
 				//★３入力チェック処理③（失敗）
 				registMBean.setEmsg("商品登録に失敗しました");
-				request.setAttribute("registMsBean", registMBean);
+				request.setAttribute("registMBean", registMBean);
 			}
 		}
 		String forward_jsp = "/views/RegistM.jsp";

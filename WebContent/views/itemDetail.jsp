@@ -12,7 +12,7 @@
 <title>商品詳細</title>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="menu.jsp" />
 	<div id="contents">
 		<h1>商品詳細画面</h1>
 		<s:form action="AddCartAction" theme="simple">

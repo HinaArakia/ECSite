@@ -9,11 +9,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <!-- CSS -->
-<link href="<c:url value="/css/TOP.css"/>" rel="stylesheet">
+<link href="<c:url value="/css/item.css"/>" rel="stylesheet">
 <!-- jquery呼び出し -->
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -22,29 +24,54 @@
 
 </head>
 <body>
-	<jsp:include page="/views/header.jsp" />
-	<h3>商品一覧</h3>
+	<jsp:include page="/views/menu.jsp" />
+
+	<h1>商品一覧リスト</h1>
+
+	<!-- ★カテゴリー選択★ -->
+	<form action="/ECSite/ItemServlet" method="POST" >
+
+		<select name="getItems">
+			<option value=""></option>
+			<option value="ファッション">ファッション</option>
+			<option value="インテリア">インテリア</option>
+			<option value="フード">フード</option>
+			<option value="キッチン">キッチン</option>
+			<option value="文具">文具</option>
+		</select><input type="submit" value="絞り込む">
+	</form>
+
+	<form action="/ECSite/SortServlet" method="POST" >
+		<select name="getItems">
+			<option value=""></option>
+			<option value="high">価格の高い順</option>
+			<option value="low">価格の低い順</option>
+		</select><input type="submit" value="検索">
+	</form>
+
 
 	<c:forEach items="${getItems}" var="getItems">
 		<form action="/ECSite/ItemServlet" method="POST">
 
-			商品id:
-			<c:out value="${getItems.item_id}" />
-			<br> 商品名:
+			<img src="${pageContext.request.contextPath}/img/${getItems.img}"
+				class="item_size" /><br> <br> <br> <br> <br>
+
+			<br> <br> <br> <br> <br>
 			<c:out value="${getItems.item_name}" />
+			<c:out value="${getItems.item_category}" />
 			<br> 価格:
 			<c:out value="${getItems.item_price}" />
-			<br>
-			<c:out value="${getItems.img}" />
-			個数: <select name="quantity">
+			円 <br> 個数: <select name="cart_quantity ">
 				<option value="1">1
 				<option value="2">2
 				<option value="3">3
 				<option value="4">4
 				<option value="5">5
-			</select> 個<br> <input type="submit" value="カートに追加">
+			</select> 個 <br> <input type="button" value="カートに追加">
 		</form>
 	</c:forEach>
 
+
+	<script src="/js/header.js"></script>
 </body>
 </html>

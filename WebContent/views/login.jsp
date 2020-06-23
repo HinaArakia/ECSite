@@ -13,14 +13,21 @@
 <!-- CSS -->
 <link href="<c:url value="/css/EC.css"/>" rel="stylesheet">
 
+<!-- ふぉんとあうぇさむ -->
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"　>
+
 <!-- 文字エンコーディングの指定 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>入力フォーム</title>
 </head>
 <body>
-	<h1>Login</h1>
+	<h1>LoginPage</h1>
+
 <div class="Login-form"><ul>
-<h2>-ユーザ名とパスワードを入力-</h2>
+
+<h2>ユーザ名とパスワードを入力</h2>
+
+
 	<form action="LoginServlet" method="POST">
 	 <input type="text" name="username" placeholder=username >
 		<input type="password" name="password" placeholder="password" >

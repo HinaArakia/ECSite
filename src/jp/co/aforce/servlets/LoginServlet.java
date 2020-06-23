@@ -1,7 +1,6 @@
 package jp.co.aforce.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.aforce.beans.ItemBean;
 import jp.co.aforce.beans.LoginBean;
-import jp.co.aforce.models.ItemModel;
 import jp.co.aforce.models.LoginModel;
 
 
@@ -28,6 +25,8 @@ public class LoginServlet extends HttpServlet {
 		rDispatcher.forward(request, response);
 	}
 
+
+
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
@@ -35,12 +34,11 @@ public class LoginServlet extends HttpServlet {
 		// 文字のエンコードを UTF-8 とする。これがないと文字化け。
 		request.setCharacterEncoding("UTF-8");
 
-		//文字エンコーディングの指定
-		request.setCharacterEncoding("UTF-8");
 
-		ItemModel itemModel = new ItemModel();
-		List<ItemBean> getItems = itemModel.getItems();
-		request.setAttribute("getItems", getItems);
+		//ItemModel itemModel = new ItemModel();
+		//List<ItemBean> getItems = itemModel.getItems();
+		//request.setAttribute("getItems", getItems);
+
 
 
 		// ユーザによって入力された情報を取り出す

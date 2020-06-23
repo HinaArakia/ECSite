@@ -13,6 +13,7 @@ public class ItemBean implements Serializable {
 	private String item_price;
 	private String item_id;
 	private String img;
+	private String error;
 
 
 	public ItemBean() {
@@ -21,7 +22,7 @@ public class ItemBean implements Serializable {
 		this.item_price = "";
 		this.item_id = "";
 		this.img = "";
-
+		this.error = "";
 	}
 
 	public ItemBean(String item_name, String item_category, String item_price, String item_id,String img) {
@@ -80,5 +81,15 @@ public class ItemBean implements Serializable {
 		//★ゲッター(画像)
 		public String getImg() {
 			return this.img;
+		}
+
+
+//★ゲッター(エラーメッセージ)
+		public String getEmsg() {
+		return error;
+		}
+		//★セッター(エラーメッセージ）
+		public void setEmsg(String error) {
+			this.error =error;
 		}
 }

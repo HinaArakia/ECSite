@@ -38,7 +38,6 @@
 					<option value="フード">フード</option>
 					<option value="キッチン">キッチン</option>
 					<option value="文具">文具</option>
-
 				</select><br>
 				<br> 商品画像<input type="text" name="img"><br> <br>
 
@@ -58,8 +57,6 @@
 			<!-- 成功時 -->
 			<c:out value="${memberBean.smsg}" />
 		</form>
-
-
 
 		<script src="/js/EC.js"></script>
 	</div>

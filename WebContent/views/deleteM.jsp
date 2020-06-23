@@ -1,62 +1,67 @@
+<!-- ★管理者変更画面★ -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!-- タグライブラリの使用を宣言（必要に応じて）  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:useBean id="registMBean" class="jp.co.aforce.beans.DeleteMBean"
+
+<jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean"
 	scope="request" />
 
+<jsp:useBean id="itemBean" class="jp.co.aforce.beans.ItemBean"
+	scope="request" />
 
 
 <!doctype html>
 <html>
 <head>
-<!-- 文字エンコーディングの指定 -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
 <!-- CSS -->
-<link href="<c:url value="/css/member.css" />" rel="stylesheet">
+<link href="<c:url value="/css/TOP.css"/>" rel="stylesheet">
 
-<title>商品削除画面</title>
 
+<!-- jquery呼び出し -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- タイトル -->
+<title>管理者削除画面</title>
 </head>
+
+
+
 <body>
 
-	商品削除画面
-	<br>
-	<br>
-
-	<div class="nameage">
-		<form action="/ECSite/DeleteMServlet" method="POST">
-			<div class="text">
-				商品名 <input type="text" name="name"><br> <br> <input
-					type="text" name="item_price"> 商品価格 <input type="text"
-					maxlength="5" oninput="value = value.replace(/[^0-9]+/i,'');"
-					name="item_price" /><br> <br> 商品カテゴリ <select
-					name="item_category" onSubmit="return check()">
-					<option value=""></option>
-					<option value="インテリア">インテリア</option>
-					<option value="ファッション">ファッション</option>
-					<option value="フード">フード</option>
-					<option value="キッチン">キッチン</option>
-					<option value="文具">文具</option>
-				</select>
+	<h1>商品削除</h1>
 
 
-				<div class="nameage">
-					<button type="button" onclick="history.back()" class="button">戻る</button>
-					<input type="submit" value="削除" name="delete" class="button">
-				</div>
+	<c:forEach items="${getItems}" var="getItems">
 
-				<br>
-				<!-- 未記入あり -->
-				<c:out value="${memberBean.nmsg}" />
-				<!-- 失敗時 -->
-				<c:out value="${memberBean.emsg}" />
-				<!-- 成功時 -->
-				<c:out value="${memberBean.smsg}" />
-		</form>
+		<form action="DeleteMServlet" method=post>
+			商品id: <input type="text" value="${getItems.item_id}" name=item_id  /> <br>
+			 商品名: <input type="text" value="${getItems.item_name}" name=item_name /> <br>
+			価格: <input type="text" value="${getItems.item_price}" name=item_price readonly /> <br> 商品画像 <img
+				src="${pageContext.request.contextPath}/img/${getItems.img}"class="item_size" />
+				商品カテゴリ: <input type="text"value="${getItems.item_category}" name=item_category /> <br>
 
-		<script src="/js/member.js"></script>
-	</div>
+
+
+			<button type="submit">削除</button>
+</form>
+</c:forEach>
+
+
+
+	<!-- 失敗時 -->
+	<c:out value="${memberBean.emsg}" />
+
+
+
+
+
+	<script src="/ECSite/WebContent/js/EC.js"></script>
 </body>
 </html>

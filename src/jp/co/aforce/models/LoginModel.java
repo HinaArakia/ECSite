@@ -34,5 +34,25 @@ public class LoginModel {
 		return rs != null;
 	}
 
+	public boolean menber(String member_name) {
+		//実行結果を格納する変数
+		ResultSet rs = null;
+
+		try {
+			//DBに接続するための手続き
+			DBUtil.makeConnection();
+			DBUtil.makeStatement();
+
+			//sqlを実行
+			String mSQL = "SELECT `member_name` FROM `login` WHERE `username`='" + member_name +  "'";
+			rs = DBUtil.execute(mSQL);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection();
+		}
+		return rs != null;
+	}
 
 }

@@ -1,42 +1,61 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<!-- ★管理者変更画面★ -->
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!-- タグライブラリの使用を宣言（必要に応じて）  -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean"
+	scope="request" />
+
+<jsp:useBean id="itemBean" class="jp.co.aforce.beans.ItemBean"
+	scope="request" />
+
+
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<title>書籍一覧</title>
+
+
+<!-- CSS -->
+<link href="<c:url value="/css/TOP.css"/>" rel="stylesheet">
+
+
+<!-- jquery呼び出し -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- タイトル -->
+<title>管理者変更画面</title>
 </head>
+
+
+
 <body>
 
-  <div id="main"></div>
-  <p>書籍一覧画面</p>
-  <span class="mgr">書籍名：<input type="text" name="BookName"><input id="sbtn5" type="submit" value="検索"></span>
- ジャンル名：<select name="genre">
- <option value="1">文学</option>
- <option value="2">経済</option>
- <option value="3">技術</option>
- <input type="submit" value="検索"><br/>
-  </select><br/>
-  <table border="1">
-  <tr>
-      <th>書籍ID</th>
-      <th>書籍名</th>
-      <th>著者</th>
-      <th>発行日</th>
-      <th>在庫</th>
-      <th>ジャンル名</th>
-  </tr>
-  <c:forEach var="book" items="${book}">
-  <tr>
-    <th>${book.bookId }</th>
-    <th>${book.bookName}</th>
-    <th>${book.author}</th>
-    <th>${book.publicatoindate }</th>
-    <th>${book.stock}</th>
-    <th>${book.genreId}</th>
- </tr>
- </c:forEach>
-</table>
+	<h1>会員情報変更</h1>
+
+		<c:forEach items="${getItems}" var="getItems">
+
+<form action ="UpdateServlet" method=post>
+				商品id:
+				 <input type="text" value="${getItems.item_id}" name=item_id  readonly/> <br>
+					商品名:
+					 <input type="text" value="${getItems.item_name}" name=item_name /> <br>
+					価格: <input type="text"
+					value="${getItems.item_price}" name=item_price /> <br>
+					商品画像 <img
+					src="${pageContext.request.contextPath}/img/${getItems.img}"
+					class="item_size" />
+
+						<button type="submit">変更</button>
+						</form>
+					</c:forEach>
+
+		<!-- 失敗時 -->
+		<c:out value="${memberBean.emsg}" />
+		<script src="/ECSite/WebContent/js/EC.js"></script>
 </body>
 </html>
