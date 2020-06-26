@@ -70,6 +70,8 @@ public class ChangeMServlet extends HttpServlet {
 		itemBean.getImg();
 
 		String forward_jsp = "/views/changeM.jsp";
+		//確認画面挟みたい
+		//String forward_jsp = "/views/confirmation.jsp";
 		RequestDispatcher rDispatcher = request.getRequestDispatcher(forward_jsp);
 		rDispatcher.forward(request, response);
 	}

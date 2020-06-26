@@ -24,10 +24,10 @@ public class LogoutServlet extends HttpServlet {
 	}
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+// 文字のエンコードを UTF-8 とする。これがないと文字化け。
+			public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		// 文字のエンコードを UTF-8 とする。これがないと文字化け。
 		request.setCharacterEncoding("UTF-8");
 
 

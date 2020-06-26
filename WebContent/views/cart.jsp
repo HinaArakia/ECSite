@@ -7,6 +7,10 @@
 <jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean"
 	scope="request" />
 
+
+<jsp:useBean id="cartInBean" class="jp.co.aforce.beans.CartInBean"
+	scope="session" />
+
 <!doctype html>
 <html>
 <head>
@@ -15,45 +19,13 @@
 
 <!-- 文字エンコーディングの指定 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>カートの中身</title>
+<title>カートに入れました</title>
 </head>
 <body>
-	<h1>ショッピングカート</h1>
-	<div class='body'>
-		<div class='container'>
-			<p id="notice"></p>
-			<h1>ショッピングカート</h1>
-			<div class="col-lg-12">
-				<table class="table table-hover table-inverse">
-					<thead>
-
-						<tr>
-							<th>商品名</th>
-							<th>単価(税込)</th>
-							<th>数量</th>
-							<th>小計</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @carts.each do |cart| %>
-						<tr>
-							<td><%= attachment_image_tag cart.product, :image, :fill, 30, 30 %><%= cart.product.name %></td>
-							<td><%= number_to_currency(cart.product.price) %></td>
-							<td><%= cart.quantity %></td>
-							<td><%= number_to_currency(cart.product.price * cart.quantity) %></td>
-							<td><%=link_to "削除する", cart_item_path(cart.id), method: :delete %></td>
-							<td><%=link_to "カートを空にする", destroy_all_cart_items_path, method: :delete %></td>
-							<% end %>
-						</tr>
-					</tbody>
-				</table>
-				<%= link_to "買い物を続ける", root_path %>
-				<p>合計金</p>
-			</div>
-			<%= link_to "情報入力に進む", new_order_path %>
-		</div>
-	</div>
+	<button type="button" onclick="history.back()" class="button">買い物を続ける</button>
+	<input type="submit" value="購入に進む" name="regist" class="button">
+	<form action="/ECSite/Cart_itemServlet" method="get">
+		<input type="submit" value="買い物カゴをみる" name="regist" class="button">
+	</form>
 </body>
 </html>

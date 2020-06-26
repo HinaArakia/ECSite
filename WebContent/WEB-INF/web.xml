@@ -122,6 +122,25 @@
   </servlet-mapping>
 
 
+
+<servlet>
+    <servlet-name>Cart_itemServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.Cart_itemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cart_itemServlet</servlet-name>
+    <url-pattern>/Cart_itemServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Buy_ItemServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.Buy_ItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Buy_ItemServlet</servlet-name>
+    <url-pattern>/Buy_ItemServlet</url-pattern>
+  </servlet-mapping>
+
   <resource-ref>
   	<res-ref-name>jdbc/test</res-ref-name>
   	<res-type>javax.sql.DataSource</res-type>

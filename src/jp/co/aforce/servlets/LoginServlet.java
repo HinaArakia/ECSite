@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.aforce.beans.LoginBean;
 import jp.co.aforce.models.LoginModel;
 
-
 // 親クラスに HttpServlet を指定する
 @SuppressWarnings("serial") // これがないと waring がでる
 public class LoginServlet extends HttpServlet {
@@ -23,23 +22,40 @@ public class LoginServlet extends HttpServlet {
 		// GETリクエストはあり得ないので、無条件でログイン画面に飛ばす
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/login.jsp");
 		rDispatcher.forward(request, response);
+		System.out.println("get request");
 	}
-
-
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		System.out.println("post request");
 
 		// 文字のエンコードを UTF-8 とする。これがないと文字化け。
 		request.setCharacterEncoding("UTF-8");
 
+		/* HttpSession session = request.getSession(false);
+
+		    System.out.println("<html>");
+		    System.out.println("<head>");
+		    System.out.println("<title>セッションテスト</title>");
+		    System.out.println("</head>");
+		    System.out.println("<body>");
+
+		    if (session == null){
+		      System.out.println("<p>セッションは存在しません。開始します</p>");
+		      session = request.getSession(true);
+		    }else{
+		      System.out.println("<p>セッション開始してます</p>");
+		    }
+
+		   // System.out.println("<a href=¥"/session/sessiontest¥">再表示</a>");
+
+		    System.out.println("</body>");
+		    System.out.println("</html>");*/
 
 		//ItemModel itemModel = new ItemModel();
 		//List<ItemBean> getItems = itemModel.getItems();
 		//request.setAttribute("getItems", getItems);
-
-
 
 		// ユーザによって入力された情報を取り出す
 		String username = request.getParameter("username");
@@ -61,15 +77,13 @@ public class LoginServlet extends HttpServlet {
 			// エラーメッセージを設定
 			loginBean.setEmsg("ユーザ名またはパスワードが違います");
 			request.setAttribute("loginBean", loginBean);
-		}
-		else if (username.equals("manager")&&password.equals("manager")){
+		} else if (username.equals("manager") && password.equals("manager")) {
 			// 管理者ページに飛ぶ
 			forward_jsp = "/views/menuM.jsp";
 		} else {
 			//ユーザーページに飛ぶ
 			forward_jsp = "/views/top.jsp";
 		}
-
 
 		// forwaed_jsp に設定されているJSPへディスパッチ
 		RequestDispatcher rDispatcher = request.getRequestDispatcher(forward_jsp);

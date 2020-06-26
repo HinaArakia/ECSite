@@ -48,7 +48,7 @@
 				<a href="javascript:form3.submit()" class="menu_font">LOGOUT</a>
 			</form></li>
 		<li class="nav__item"><form method="post" name="form5"
-				action="/views/top/jsp">
+				action="/views/top.jsp">
 				<a href="javascript:form5.submit()" class="menu_font">TOP</a>
 			</form></li>
 	</ul>

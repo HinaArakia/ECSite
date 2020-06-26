@@ -27,6 +27,8 @@ public class ItemServlet extends HttpServlet {
 		//フォワード
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/itemAll.jsp");
 		rDispatcher.forward(request, response);
+
+
 	}
 
 	//★POST★
@@ -38,27 +40,6 @@ public class ItemServlet extends HttpServlet {
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
 
-		// ★１、ユーザによって入力された情報を取り出す
-		/*String item_price = request.getParameter("item_price");
-		String item_name = request.getParameter("item_name");
-		String item_category = request.getParameter("item_category");
-		String item_id = request.getParameter("item_id");
-		String img = request.getParameter("img");
-		// ★２、取り出した情報をItemBean に格納する
-		ItemBean itemBean = new ItemBean();
-		itemBean.setItem_price(item_price);
-		itemBean.setItem_name(item_name);
-		itemBean.setItem_category(item_category);
-		itemBean.setItem_id(item_id);
-		itemBean.setImg(img);
-
-		itemBean.getItem_price();
-		itemBean.getItem_name();
-		itemBean.getItem_category();
-		itemBean.getItem_id();
-		itemBean.getImg();
-		*/
-
 		//リクエストとってくる
 		String getItems = request.getParameter("getItems");
 
@@ -68,15 +49,12 @@ public class ItemServlet extends HttpServlet {
 			List<ItemBean> getcategory = itemModel.getItems();
 			//"getitems"にgetcategoryにいれた値が入る。
 			request.setAttribute("getItems", getcategory);
-
-
-		} else {
+		} else{
 			List<ItemBean> getcategory = itemModel.category(getItems);
 			request.setAttribute("getItems", getcategory);
 
 		}
 
-		//★ItemMOdelをインスタンス化
 
 		//List<ItemBean> getItems = itemModel.getItems();
 

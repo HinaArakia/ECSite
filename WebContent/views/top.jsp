@@ -49,8 +49,6 @@
 
 <div class="fixed-bg bg02">
 </div>
-
-
 <!-- スリック -->
 <script type="text/javascript" src="slick/slick-1.8.1/slick/slick.min.js"></script>
 	<script src="/ECSite/WebContent/js/header.js"></script>
