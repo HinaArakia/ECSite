@@ -25,8 +25,6 @@ public class CartInServlet extends HttpServlet {
 			throws IOException, ServletException {
 		System.out.println("get request");
 		//フォワード
-		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart.jsp");
-		rDispatcher.forward(request, response);
 
 		//セッション
 		HttpSession session = request.getSession(false);
@@ -39,12 +37,10 @@ public class CartInServlet extends HttpServlet {
 		//			System.out.println("castok");
 		//		}
 
-
 		//
 		//List<CartInBean> cart_list = new ArrayList<CartInBean>();
 
 		//最初に買い物かごセッションを取得
-
 		String item_name = request.getParameter("item_name");
 		String item_price = request.getParameter("item_price");
 		String item_id = request.getParameter("item_id");
@@ -55,7 +51,6 @@ public class CartInServlet extends HttpServlet {
 
 		// ★２、取り出した情報を CartInBean に格納する
 		//CartInBean cartInBean = new CartInBean();
-
 		cartInBean.setCartIn_name(item_name);
 		cartInBean.setCartIn_price(item_price);
 		cartInBean.setCartIn_id(item_id);
@@ -72,11 +67,24 @@ public class CartInServlet extends HttpServlet {
 		// カートが無ければつくる
 		if (cart_list == null) {
 			cart_list = new ArrayList<>();
-			//session.setAttribute("cartInBean", cart_list);
-		} else {
-			cart_list.add(cartInBean);
-			session.setAttribute("cartInBean", cart_list);
 		}
+		cart_list.add(cartInBean);
+		session.setAttribute("cartInBean", cart_list);
+
+		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart.jsp");
+		rDispatcher.forward(request, response);
+
+		//cartinmodelをインスタンス化
+		//CartInModel cartInModel = new CartInModel();
+		//boolean cart = cartInModel.cart(cartInBean);
+
+		int price = 0;
+		int count = 0;
+		//List<Item> cart = (List<Item>) session.getAttribute("cart");
+		//for (CartInBean item : cart) {
+			//count += item.getCount();
+			System.out.println(count);
+		//}
 	}
 
 	//★POST★
@@ -84,14 +92,10 @@ public class CartInServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		System.out.println("post request");
-
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
 
-
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart_item.jsp");
 		rDispatcher.forward(request, response);
-
-
 	}
 }

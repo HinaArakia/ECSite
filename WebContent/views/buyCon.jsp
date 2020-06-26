@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean" scope= "request" />
 
 
 <!doctype html>

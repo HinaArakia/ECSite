@@ -4,12 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<jsp:useBean id="loginBean" class="jp.co.aforce.beans.LoginBean"
-	scope="request" />
-
-
-<jsp:useBean id="cartInBean" class="jp.co.aforce.beans.CartInBean" scope="session" />
-
 <!doctype html>
 <html>
 <head>
@@ -21,7 +15,8 @@
 <title>カートに入れました</title>
 </head>
 <body>
-	<button type="button" onclick="history.back()" class="button">買い物を続ける</button>
+	<button type="button" onclick="history.back()" class="button">買い物を続ける</button><br>
+<form action="/ECSite/Cart_itemServlet" method="get">
 	<input type="submit" value="購入に進む" name="regist" class="button">
 	<form action="/ECSite/Cart_itemServlet" method="get">
 		<input type="submit" value="買い物カゴをみる" name="regist" class="button">

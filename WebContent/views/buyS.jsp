@@ -9,15 +9,18 @@
 
 <body>
 
-  <jsp:include page="header.jsp"/>
 
   <h1>購入結果</h1>
 
+
+
+
+
   <p>購入しました。</p>
 
-  <form action="/ECSite/BuyServlet" method="post">
+  <form action="/ECSite/ItemServlet" method="get">
 
-      <input type="submit" value="一覧に戻る">
+      <input type="submit" value="アイテム一覧に戻る">
 
   </form>
 

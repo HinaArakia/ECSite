@@ -141,6 +141,17 @@
     <url-pattern>/Buy_ItemServlet</url-pattern>
   </servlet-mapping>
 
+
+    <servlet>
+    <servlet-name>BuySuccesServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.BuySuccesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuySuccesServlet</servlet-name>
+    <url-pattern>/BuySuccesServlet</url-pattern>
+  </servlet-mapping>
+
+
   <resource-ref>
   	<res-ref-name>jdbc/test</res-ref-name>
   	<res-type>javax.sql.DataSource</res-type>

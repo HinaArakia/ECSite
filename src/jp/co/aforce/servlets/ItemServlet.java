@@ -25,7 +25,7 @@ public class ItemServlet extends HttpServlet {
 			throws IOException, ServletException {
 		System.out.println("get request");
 		//フォワード
-		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/itemAll.jsp");
+		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/top.jsp");
 		rDispatcher.forward(request, response);
 
 
