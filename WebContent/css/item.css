@@ -1,0 +1,65 @@
+
+
+/*こぴぺ*/
+/* 商品一覧エリアの背景 */
+#item-list {
+  background: #ccc;
+}
+
+/* クリアフィックス */
+#item-list ul:after {
+  content: "";
+clear: both;
+    display: block;
+
+}
+
+/* 商品一覧のリストの設定 */
+#item-list ul li {
+  display: block;
+  float: left;
+  height: 100px;
+  list-style-type: none;
+  background: #0cc;
+  text-align: center;
+}
+
+.item_size {
+
+	float:left;
+	  width: 20%;  /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
+    height:20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
+}
+
+.allItem {
+	font-family: "刻ゴシック Light";
+	font-size: 50px;
+	color: #622856;
+	float:left;
+	 width: 20%;  /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
+    height:20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
+
+}
+
+.items {
+	backgrownd-color: black;
+	color: #622856;
+	font-family: "刻ゴシック Light";
+	float:left;
+	width:600px;
+	margin-left:20px;
+
+
+}
+
+
+/*テーブ*/
+#myTable .tablesorter-header {
+  cursor: pointer;
+  outline: none;
+}
+#myTable .tablesorter-header-inner::after {
+  content: '▼';
+  font-size: 12px;
+  margin-left: 5px;
+}
