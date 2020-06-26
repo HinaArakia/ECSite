@@ -56,7 +56,7 @@
 			<br> <br> <br> <br> <br>
 			<input type="hidden" name="item_name" value="${getItems.item_name} "  />
 			<input type="hidden" name="item_price" value="${getItems.item_price} "  />
-			<input type="hidden" name="item_id" value="${getItems.item_id} "  />
+			<input type="hidden" name="item_id" value="${getItems.item_id} "/>
 			<c:out value="${getItems.item_name}"  />
 			<!--<c:out value="${getItems.item_category}" />-->
 			<br> 価格:

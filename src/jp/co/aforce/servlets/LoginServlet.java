@@ -33,30 +33,6 @@ public class LoginServlet extends HttpServlet {
 		// 文字のエンコードを UTF-8 とする。これがないと文字化け。
 		request.setCharacterEncoding("UTF-8");
 
-		/* HttpSession session = request.getSession(false);
-
-		    System.out.println("<html>");
-		    System.out.println("<head>");
-		    System.out.println("<title>セッションテスト</title>");
-		    System.out.println("</head>");
-		    System.out.println("<body>");
-
-		    if (session == null){
-		      System.out.println("<p>セッションは存在しません。開始します</p>");
-		      session = request.getSession(true);
-		    }else{
-		      System.out.println("<p>セッション開始してます</p>");
-		    }
-
-		   // System.out.println("<a href=¥"/session/sessiontest¥">再表示</a>");
-
-		    System.out.println("</body>");
-		    System.out.println("</html>");*/
-
-		//ItemModel itemModel = new ItemModel();
-		//List<ItemBean> getItems = itemModel.getItems();
-		//request.setAttribute("getItems", getItems);
-
 		// ユーザによって入力された情報を取り出す
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -68,7 +44,6 @@ public class LoginServlet extends HttpServlet {
 		loginBean.setPassword(password);
 
 		// モデルをインスタンス化する
-
 		LoginModel loginModel = new LoginModel();
 		String forward_jsp = "/views/login.jsp";
 

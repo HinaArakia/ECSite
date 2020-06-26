@@ -8,8 +8,7 @@
 	scope="request" />
 
 
-<jsp:useBean id="cartInBean" class="jp.co.aforce.beans.CartInBean"
-	scope="session" />
+<jsp:useBean id="cartInBean" class="jp.co.aforce.beans.CartInBean" scope="session" />
 
 <!doctype html>
 <html>

@@ -29,15 +29,19 @@ public class CartInServlet extends HttpServlet {
 		rDispatcher.forward(request, response);
 
 		//セッション
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
+		//session.invalidate();
 
 		// カートを作る準備（セッション領域の取得・右辺をリストに対応できるようキャストしている）
 		CartInBean cartInBean = new CartInBean();
-		ArrayList<CartInBean> cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
+		//System.out.prinln(session.getAttribute("cartInBean") instanceof ArrayList<CartInBean> );
+		//		if(session.getAttribute("cartInBean") instanceof CartInBean){
+		//			System.out.println("castok");
+		//		}
+
 
 		//
 		//List<CartInBean> cart_list = new ArrayList<CartInBean>();
-
 
 		//最初に買い物かごセッションを取得
 
@@ -46,6 +50,8 @@ public class CartInServlet extends HttpServlet {
 		String item_id = request.getParameter("item_id");
 		String cart_quantity = request.getParameter("cart_quantity");
 		String img = request.getParameter("img");
+
+		System.out.println(item_name);
 
 		// ★２、取り出した情報を CartInBean に格納する
 		//CartInBean cartInBean = new CartInBean();
@@ -61,14 +67,16 @@ public class CartInServlet extends HttpServlet {
 		//CartInModel cartInModel = new CartInModel();
 		//boolean cart = cartInModel.cart(cartInBean);
 
+		ArrayList<CartInBean> cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
+
 		// カートが無ければつくる
 		if (cart_list == null) {
 			cart_list = new ArrayList<>();
 			//session.setAttribute("cartInBean", cart_list);
+		} else {
+			cart_list.add(cartInBean);
+			session.setAttribute("cartInBean", cart_list);
 		}
-		cart_list.add(cartInBean);
-		session.setAttribute("cartInBean", cartInBean);
-
 	}
 
 	//★POST★
@@ -79,6 +87,11 @@ public class CartInServlet extends HttpServlet {
 
 		//文字エンコーディングの指定
 		request.setCharacterEncoding("UTF-8");
+
+
+		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart_item.jsp");
+		rDispatcher.forward(request, response);
+
 
 	}
 }

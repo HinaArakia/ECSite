@@ -7,7 +7,6 @@
 <%--コメントアウトした --%>
 <%--@ page import="jp.co.aforce.beans.CartInBean"--%>
 <%--	CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");--%>
-
 <!doctype html>
 <html>
 <head>
