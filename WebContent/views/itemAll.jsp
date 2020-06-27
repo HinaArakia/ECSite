@@ -39,11 +39,11 @@
 		</select><input type="submit" value="絞り込む">
 	</form>
 
-	<form action="/ECSite/ItemServlet" method="POST" >
-		<select name="getItems">
+	<form action="/ECSite/SortServlet" method="POST" >
+		<select name="sort">
 			<option value=""></option>
-			<option value="high">価格の高い順</option>
-			<option value="low">価格の低い順</option>
+			<option value="high">high</option>
+			<option value="low">low</option>
 		</select><input type="submit" value="検索">
 	</form>
 

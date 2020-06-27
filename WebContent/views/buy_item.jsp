@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!-- タグライブラリの使用を宣言（必要に応じて）  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -42,29 +41,26 @@ CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");
 			<c:forEach items="${cartInBean}" var="cartInBean">
 
 				<form action="/ECSite/CartInServlet" method="get">
-
 					${cartInBean.cartIn_name}<br>
 					${cartInBean.cartIn_price}円<br>
-					${cartInBean.cartIn_quantity}個
+					${cartInBean.cartIn_quantity}個<br>
 
-					合計
-
-
-					円
-
-
-
-
+					<br>小計${cartInBean.subTotal}円<br>
 				</form>
-
-		<input type="hidden" name="item_name" value="${getItems.item_name} "
+				<input type="hidden" name="item_name" value="${getItems.item_name} "
 					readonly />
 				<input type="hidden" name="item_price"
 					value="${getItems.item_price} " readonly />
-				<input type="hidden" name="item_id" value="${getItems.item_id} "readonly />
+				<input type="hidden" name="item_id" value="${getItems.item_id} "
+					readonly />
 			</c:forEach>
+
+
+				<form action="/ECSite/CartInServlet" method="get">
+			合計 円<br>
+			</form>
 			<form action="/ECSite/BuySuccesServlet" method="POST">
-					 <input type="submit" value="購入する" name="regist" class="button">
+				<input type="submit" value="購入する" name="regist" class="button">
 			</form>
 
 		</ul>

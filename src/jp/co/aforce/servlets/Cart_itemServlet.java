@@ -25,15 +25,6 @@ public class Cart_itemServlet extends HttpServlet {
 		//HttpSession session = request.getSession();
 		//CartInBean cartInBean = new CartInBean();
 
-		//★CartInServletでカートに入れたアイテムを表示したい
-		//if (session == null) {
-			//System.out.println("<p>セッションは存在しません。開始します</p>");
-			//session = request.getSession();
-		//} else {
-			//System.out.println("カートに入れた商品を表示したい");
-			//request.getAttribute("cartInBean");
-	//	}
-
 	}
 
 	//★POST★

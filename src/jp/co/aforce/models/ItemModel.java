@@ -80,13 +80,7 @@ public class ItemModel {
 			DBUtil.closeConnection();
 		}
 		return getItems;
-
 	}
-
-
-
-
-
 
 		//★商品を高い順にソートするSQL
 	public List<ItemBean> low(String item_price) {
@@ -97,7 +91,6 @@ public class ItemModel {
 		List<ItemBean> getItems = new ArrayList<ItemBean>();
 
 		try {
-
 			//DBに接続するための手続き
 			DBUtil.makeConnection();
 			DBUtil.makeStatement();
@@ -123,9 +116,7 @@ public class ItemModel {
 				itemBean.setItem_id(rs.getString("item_id"));
 				itemBean.setImg(rs.getString("img"));
 				getItems.add(itemBean);
-
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

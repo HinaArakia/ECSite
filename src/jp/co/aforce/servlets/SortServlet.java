@@ -60,19 +60,19 @@ public class SortServlet extends HttpServlet {
 		*/
 
 		//リクエストとってくる
-		String getItems = request.getParameter("getItems");
+		String sort = request.getParameter("sort");
 		SortModel sortModel = new SortModel();
-
-
 		//irwEMpty空文字もしくはnullだとtrueが返る↓
-		if (getItems=="") {
-			List<ItemBean>  getcategory= sortModel.low(getItems);
+		if (sort=="") {
+			List<ItemBean> getcategory= sortModel.getItems();
 		request.setAttribute("getItems", getcategory);
-
-		} else if(getItems=="high") {
-			List<ItemBean>  getcategory = sortModel.high(getItems);
+		} else if(sort=="high") {
+			List<ItemBean>  getcategory = sortModel.high(sort);
 			request.setAttribute("getItems",getcategory);
-
+		}
+		else if(sort=="low") {
+			List<ItemBean>  getcategory = sortModel.low(sort);
+			request.setAttribute("getItems",getcategory);
 		}
 
 	//-------------------------------------

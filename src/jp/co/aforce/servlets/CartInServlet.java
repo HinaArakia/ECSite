@@ -47,6 +47,8 @@ public class CartInServlet extends HttpServlet {
 		String cart_quantity = request.getParameter("cart_quantity");
 		String img = request.getParameter("img");
 
+
+
 		System.out.println(item_name);
 
 		// ★２、取り出した情報を CartInBean に格納する
@@ -56,6 +58,7 @@ public class CartInServlet extends HttpServlet {
 		cartInBean.setCartIn_id(item_id);
 		cartInBean.setCartIn_quantity(cart_quantity);
 		cartInBean.setCartIn_img(img);
+
 
 		//★カゴなら使わないかも
 		//cartinmodelをインスタンス化
@@ -77,15 +80,22 @@ public class CartInServlet extends HttpServlet {
 		//cartinmodelをインスタンス化
 		//CartInModel cartInModel = new CartInModel();
 		//boolean cart = cartInModel.cart(cartInBean);
-
-		int price = 0;
-		int count = 0;
+		//int price = 0;
+		//int count = 0;
 		//List<Item> cart = (List<Item>) session.getAttribute("cart");
 		//for (CartInBean item : cart) {
-			//count += item.getCount();
-			System.out.println(count);
+		//count += item.getCount();
+		//System.out.println(count);
 		//}
+
+
+
+		for(int i =0; i<cart_list.size();i++) {		                                                      //個数                                           //金額
+			int subTotal = Integer.parseInt(cart_list.get(i).getCartIn_quantity())*Integer.parseInt(cart_list.get(i).getCartIn_price());
+			System.out.println(subTotal+"円");
+		}
 	}
+
 
 	//★POST★
 	@Override
@@ -97,5 +107,7 @@ public class CartInServlet extends HttpServlet {
 
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart_item.jsp");
 		rDispatcher.forward(request, response);
+
+
 	}
 }

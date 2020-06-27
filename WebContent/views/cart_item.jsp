@@ -2,8 +2,6 @@
 <!-- タグライブラリの使用を宣言（必要に応じて）  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<%--コメントアウトした --%>
 <%@ page import="jp.co.aforce.beans.CartInBean"%>
 <%@ page import="java.util.ArrayList"%>
 
@@ -31,11 +29,12 @@ cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
 	<c:forEach items="${cartInBean}" var="cartInBean">
 
 		<form action="/ECSite/CartInServlet" method="get">
-
 			${cartInBean.cartIn_name}<br>
-			${cartInBean.cartIn_price}円<br>
+		  ${cartInBean.cartIn_price}円<br>
 			${cartInBean.cartIn_quantity}個
 		</form>
+
+	</c:forEach>
 
 		<input type="hidden" name="item_name" value="${getItems.item_name} "
 			readonly />
@@ -43,7 +42,6 @@ cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
 			readonly />
 		<input type="hidden" name="item_id" value="${getItems.item_id} "
 			readonly />
-	</c:forEach>
 	<div class="Login-form">
 		<ul>
 			<button type="button" onclick="history.back()" class="button">買い物を続ける</button>

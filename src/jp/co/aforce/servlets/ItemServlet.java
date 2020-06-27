@@ -27,8 +27,6 @@ public class ItemServlet extends HttpServlet {
 		//フォワード
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/top.jsp");
 		rDispatcher.forward(request, response);
-
-
 	}
 
 	//★POST★
@@ -54,7 +52,6 @@ public class ItemServlet extends HttpServlet {
 			request.setAttribute("getItems", getcategory);
 
 		}
-
 
 		//List<ItemBean> getItems = itemModel.getItems();
 

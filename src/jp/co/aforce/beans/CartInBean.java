@@ -10,6 +10,21 @@ public class CartInBean implements Serializable {
 	public String cartIn_price;
 	public String cartIn_img;
 	public String Smsg;
+	public int subTotal;
+
+	/**
+	 *  subTotal
+	 */
+	public int getSubTotal() {
+		return subTotal;
+	}
+
+	/**
+	 * @param subTotal セットする subTotal
+	 */
+	public void setSubTotal(int subTotal) {
+		this.subTotal = subTotal;
+	}
 
 	/**
 	 * @return smsg
@@ -18,8 +33,9 @@ public class CartInBean implements Serializable {
 		return Smsg;
 	}
 
-	/**
-	 * @param emsg セットする emsg
+
+
+	/* @param emsg セットする emsg
 	 */
 	public void setSmsg(String Smsg) {
 		this.Smsg = Smsg;
@@ -86,5 +102,7 @@ public class CartInBean implements Serializable {
 	public void setCartIn_img(String cartIn_img) {
 		this.cartIn_img = cartIn_img;
 	}
+
+
 
 }
