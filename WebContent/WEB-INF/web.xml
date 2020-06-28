@@ -152,6 +152,19 @@
   </servlet-mapping>
 
 
+    <servlet>
+    <servlet-name>ItemDeleteServlet</servlet-name>
+    <servlet-class>jp.co.aforce.servlets.ItemDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItemDeleteServlet</servlet-name>
+    <url-pattern>/ItemDeleteServlet</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
   <resource-ref>
   	<res-ref-name>jdbc/test</res-ref-name>
   	<res-type>javax.sql.DataSource</res-type>

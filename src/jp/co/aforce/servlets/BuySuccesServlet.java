@@ -52,6 +52,8 @@ public class BuySuccesServlet extends HttpServlet {
 		//テーブルに入れる
 		CartInModel cartInModel = new CartInModel();
 		boolean cart = cartInModel.cart(cartInBean);
+		request.setAttribute("cartInBean", cartInBean);
+
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/buyS.jsp");
 		rDispatcher.forward(request, response);
 

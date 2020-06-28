@@ -1,65 +1,107 @@
+.item {
+	font-family: "Nikkyou Sans";
+	background-color: #9c70de;
+	color: #ffffff;
+	font-size: 20px;
+	background-image: url("../img/ice.jpg");
+	height:100px;
+	width:800px;
+	text-align:center;
+}
 
+.AllItem {
+	margin: 0px; font-family : "刻ゴシック Light";
+	font-size: 20px;
+	color: #000040;
+	font-family: "刻ゴシック Light";
+}
+
+.item_name {
+	font-weight: bold;
+	font-family: "刻ゴシック Light";
+	font-size: 30px;
+	color: #000040;
+}
+
+.button {
+	margin-right: 50px;
+	margin-top: 20px;
+	background: #2f0138;
+	color: #ffffff;
+	border-radius: 2px;
+	border: 2px solid #2f0138;
+	font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */
+	text-aligin: center;
+	font-size: 12pt; /* 文字サイズ */
+}
+
+.button:hover {
+	color: #ffffff; /*文字*/
+	background: #fff14d; /*背景*/
+	border: 1px solid #fff14d;
+}
 
 /*こぴぺ*/
 /* 商品一覧エリアの背景 */
 #item-list {
-  background: #ccc;
+	background: #ccc;
 }
 
 /* クリアフィックス */
 #item-list ul:after {
-  content: "";
-clear: both;
-    display: block;
-
+	content: "";
+	clear: both;
+	display: block;
 }
 
 /* 商品一覧のリストの設定 */
 #item-list ul li {
-  display: block;
-  float: left;
-  height: 100px;
-  list-style-type: none;
-  background: #0cc;
-  text-align: center;
+	display: block;
+	float: left;
+	height: 100px;
+	list-style-type: none;
+	background: #0cc;
+	text-align: center;
 }
 
 .item_size {
-
-	float:left;
-	  width: 20%;  /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
-    height:20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
+	float: left;
+	width: 20%; /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
+	height: 20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
 }
 
 .allItem {
 	font-family: "刻ゴシック Light";
 	font-size: 50px;
 	color: #622856;
-	float:left;
-	 width: 20%;  /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
-    height:20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
-
+	float: left;
+	width: 20%; /* （追加）2カラムの場合で（横並び５商品/写真サイズ120×120）※任意で数値変更*/
+	height: 20%; /* （追加）1行分の高さを指定  ※任意で数値変更*/
 }
 
 .items {
 	backgrownd-color: black;
 	color: #622856;
 	font-family: "刻ゴシック Light";
-	float:left;
-	width:600px;
-	margin-left:20px;
-
-
+	float: left;
+	width: 600px;
+	margin-left: 20px;
 }
-
 
 /*テーブ*/
-#myTable .tablesorter-header {
-  cursor: pointer;
-  outline: none;
+.top-banner {
+	display: flex;
+	flex-wrap: wrap;
 }
-#myTable .tablesorter-header-inner::after {
-  content: '▼';
-  font-size: 12px;
-  margin-left: 5px;
+
+.top-banner li {
+	width: calc(100%/ 4); /*←画像を横に4つ並べる場合*/
+	padding: 0 5px; /*←画像の左右に5pxの余白を入れる場合*/
+	box-sizing: border-box;
+}
+
+.top-banner li img {
+	max-width: 100%; /*画像のはみだしを防ぐ*/
+	height: auto; /*画像の縦横比を維持 */
+	border: solid 1px #ccc; /*←画像を1pxのグレーの枠線で囲む指定の場合*/
 }

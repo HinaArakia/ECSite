@@ -10,6 +10,12 @@ p {
 	font-family: "Nikkyou Sans";
 }
 
+
+.subTotal{
+	margin:0px;
+	padding-left:100px;
+}
+
 body {
 	background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
 }

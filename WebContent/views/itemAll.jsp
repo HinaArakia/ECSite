@@ -24,10 +24,10 @@
 <body>
 	<jsp:include page="/views/menu.jsp" />
 
-	<h1>商品一覧リスト</h1>
+	<div class="item"><br><br>ITEM</div>
 
 	<!-- ★カテゴリー選択★ -->
-	<form action="/ECSite/ItemServlet" method="POST" >
+	<form action="/ECSite/ItemServlet" method="POST">
 
 		<select name="getItems">
 			<option value=""></option>
@@ -36,41 +36,47 @@
 			<option value="フード">フード</option>
 			<option value="キッチン">キッチン</option>
 			<option value="文具">文具</option>
-		</select><input type="submit" value="絞り込む">
+		</select>
+		&nbsp;
+		<input type="submit" value="絞り込む" class="button">
 	</form>
 
-	<form action="/ECSite/SortServlet" method="POST" >
+	<form action="/ECSite/SortServlet" method="POST">
 		<select name="sort">
 			<option value=""></option>
 			<option value="high">high</option>
 			<option value="low">low</option>
-		</select><input type="submit" value="検索">
+		</select>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="検索" class="button">
 	</form>
 
 	<c:forEach items="${getItems}" var="getItems">
 		<form action="/ECSite/CartInServlet" method="get">
-
-			<img src="${pageContext.request.contextPath}/img/${getItems.img}"
-				class="item_size" name="img"/><br> <br> <br> <br> <br>
-
-			<br> <br> <br> <br> <br>
-			<input type="hidden" name="item_name" value="${getItems.item_name} "  />
-			<input type="hidden" name="item_price" value="${getItems.item_price} "  />
-			<input type="hidden" name="item_id" value="${getItems.item_id} "/>
-			<c:out value="${getItems.item_name}"  />
-			<!--<c:out value="${getItems.item_category}" />-->
-			<br> 価格:
-			<c:out value="${getItems.item_price}" />
-			円 <br> 個数: <select name="cart_quantity">
-				<option value="1">1
-				<option value="2">2
-				<option value="3">3
-				<option value="4">4
-				<option value="5">5
-			</select> 個 <br>
-			<input type="submit" value="カートに追加">
-			</form>
+					<img src="${pageContext.request.contextPath}/img/${getItems.img}"
+						class="item_size" name="img" /><br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <input
+						type="hidden" name="item_name" value="${getItems.item_name}" /> <input
+						type="hidden" name="item_price" value="${getItems.item_price}" />
+					<input type="hidden" name="item_id" value="${getItems.item_id}" />
+					<div class="item_name"><br>
+					<c:out value="${getItems.item_name}" />
+					</div>
+					<!--<c:out value="${getItems.item_category}" />-->
+					<div class="AllItem">
+					<br> 価格:
+					<c:out value="${getItems.item_price}" />
+					円 <br> 個数: <select name="cart_quantity">
+						<option value="1">1
+						<option value="2">2
+						<option value="3">3
+						<option value="4">4
+						<option value="5">5
+					</select> 個 <br> <input type="submit" value="カートに追加"  class="button">
+					</div>
+		</form>
 	</c:forEach>
+
+
 
 
 	<script src="/js/header.js"></script>

@@ -12,7 +12,7 @@ public class CartInBean implements Serializable {
 	public String Smsg;
 	public int subTotal;
 
-	/**
+	/*
 	 *  subTotal
 	 */
 	public int getSubTotal() {

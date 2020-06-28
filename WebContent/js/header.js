@@ -8,9 +8,7 @@ $(function () {
 	    }
 	  });
 	});
-
 //
-
 $(function(){
     var box    = $("#menu-wrap");
     var boxTop = box.offset().top;

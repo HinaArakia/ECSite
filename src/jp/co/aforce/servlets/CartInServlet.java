@@ -46,8 +46,8 @@ public class CartInServlet extends HttpServlet {
 		String item_id = request.getParameter("item_id");
 		String cart_quantity = request.getParameter("cart_quantity");
 		String img = request.getParameter("img");
-
-
+		int subTotal =Integer.parseInt(item_price)*Integer.parseInt(cart_quantity);
+		System.out.println(item_price+cart_quantity);
 
 		System.out.println(item_name);
 
@@ -58,6 +58,7 @@ public class CartInServlet extends HttpServlet {
 		cartInBean.setCartIn_id(item_id);
 		cartInBean.setCartIn_quantity(cart_quantity);
 		cartInBean.setCartIn_img(img);
+		cartInBean.setSubTotal(subTotal);
 
 
 		//★カゴなら使わないかも
@@ -89,12 +90,11 @@ public class CartInServlet extends HttpServlet {
 		//}
 
 
+		//int number = Integer.parseInt(cart_list.get(i).getCartIn_quantity());
+		//System.out.println(number);
 
-		for(int i =0; i<cart_list.size();i++) {		                                                      //個数                                           //金額
-			int subTotal = Integer.parseInt(cart_list.get(i).getCartIn_quantity())*Integer.parseInt(cart_list.get(i).getCartIn_price());
-			System.out.println(subTotal+"円");
+
 		}
-	}
 
 
 	//★POST★
@@ -107,7 +107,6 @@ public class CartInServlet extends HttpServlet {
 
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart_item.jsp");
 		rDispatcher.forward(request, response);
-
 
 	}
 }

@@ -15,7 +15,7 @@ cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
 <html>
 <head>
 <!-- CSS -->
-<link href="<c:url value="/css/EC.css"/>" rel="stylesheet">
+<link href="<c:url value="/css/cart.css"/>" rel="stylesheet">
 <!-- ふぉんとあうぇさむ -->
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
 	rel="stylesheet">
