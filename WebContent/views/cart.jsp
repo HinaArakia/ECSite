@@ -8,17 +8,19 @@
 <html>
 <head>
 <!-- CSS -->
-<link href="<c:url value="/css/EC.css"/>" rel="stylesheet">
+<link href="<c:url value="/css/cart.css"/>" rel="stylesheet">
 
 <!-- 文字エンコーディングの指定 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>カートに入れました</title>
 </head>
 <body>
+
+<div class="fontA">カートに入れました。</div>
 	<button type="button" onclick="history.back()" class="button">買い物を続ける</button><br>
 <form action="/ECSite/Cart_itemServlet" method="get">
 	<input type="submit" value="購入に進む" name="regist" class="button">
-	<form action="/ECSite/Cart_itemServlet" method="get">
+	<form action="/ECSite/Cart_itemServlet" method="get"><br>
 		<input type="submit" value="買い物カゴをみる" name="regist" class="button">
 	</form>
 </body>

@@ -68,11 +68,11 @@ public class SortServlet extends HttpServlet {
 		request.setAttribute("getItems", getcategory);
 		} else if(sort=="high") {
 			List<ItemBean>  getcategory = sortModel.high(sort);
-			request.setAttribute("getItems",getcategory);
+			request.setAttribute("high",getcategory);
 		}
 		else if(sort=="low") {
 			List<ItemBean>  getcategory = sortModel.low(sort);
-			request.setAttribute("getItems",getcategory);
+			request.setAttribute("low",getcategory);
 		}
 
 	//-------------------------------------

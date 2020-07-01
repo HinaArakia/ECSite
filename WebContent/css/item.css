@@ -2,24 +2,36 @@
 	font-family: "Nikkyou Sans";
 	background-color: #9c70de;
 	color: #ffffff;
-	font-size: 20px;
-	background-image: url("../img/ice.jpg");
-	height:100px;
-	width:800px;
-	text-align:center;
+	font-size: 40px;
+	background: -moz-linear-gradient(65deg, #F13F79, #FFC778);
+	background: -webkit-linear-gradient(65deg, #F13F79, #FFC778);
+	background: linear-gradient(25deg, #F13F79, #FFC778);
+	height: 50px;
+	width: 800px;
+	text-align: left;
+	background: -webkit-linear-gradient(65deg, #F13F79, #FFC778);
+	background: linear-gradient(25deg, #F13F79, #FFC778);
 }
 
 .AllItem {
-	margin: 0px; font-family : "刻ゴシック Light";
+	margin: 0px;
+	font-family: "刻ゴシック Light";
 	font-size: 20px;
 	color: #000040;
 	font-family: "刻ゴシック Light";
 }
 
+#itemPage li {
+	float: left;
+	width: 30%;
+	border: 1px #8080c0 solid;
+	margin:3px;
+}
+
 .item_name {
 	font-weight: bold;
-	font-family: "刻ゴシック Light";
-	font-size: 30px;
+	font-family: "游ゴシック";
+	font-size: 25px;
 	color: #000040;
 }
 
@@ -40,6 +52,43 @@
 	background: #fff14d; /*背景*/
 	border: 1px solid #fff14d;
 }
+
+.sort_desc{
+	margin-right: 50px;
+	margin-top: 20px;
+	background: #2f0138;
+	color: #ffffff;
+	border-radius: 2px;
+	border: 2px solid #2f0138;
+	font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */
+	text-aligin: center;
+	font-size: 12pt; /* 文字サイズ */
+}
+
+.sort_desc:hover {
+	color: #ffffff; /*文字*/
+	background: #fff14d; /*背景*/
+	border: 1px solid #fff14d;
+}
+
+.sort_asc{
+	margin-right: 50px;
+	margin-top: 20px;
+	background: #2f0138;
+	color: #ffffff;
+	border-radius: 2px;
+	border: 2px solid #2f0138;
+	font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */
+	text-aligin: center;
+	font-size: 12pt; /* 文字サイズ */
+}
+
+.sort_asc:hover {
+	color: #ffffff; /*文字*/
+	background: #fff14d; /*背景*/
+	border: 1px solid #fff14d;
+}
+
 
 /*こぴぺ*/
 /* 商品一覧エリアの背景 */
@@ -104,4 +153,24 @@
 	max-width: 100%; /*画像のはみだしを防ぐ*/
 	height: auto; /*画像の縦横比を維持 */
 	border: solid 1px #ccc; /*←画像を1pxのグレーの枠線で囲む指定の場合*/
+}
+
+li {
+	list-style: none;
+}
+
+.box {
+	margin-bottom: 20px;
+	border: #8000ff1px solid;
+	background: black;
+}
+
+ul.right {
+	text-align: right;
+}
+
+li {
+	display: inline;
+	padding: 0 10px;
+	border-right: #ddd 1px solid;
 }

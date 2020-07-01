@@ -154,7 +154,6 @@ public class ItemModel {
 					rs = DBUtil.execute(CSQL);*/
 
 					while (rs.next()) {
-
 						ItemBean itemBean = new ItemBean();
 						itemBean.setItem_name(rs.getString("item_name"));
 						itemBean.setItem_price(rs.getString("item_price"));
@@ -162,7 +161,6 @@ public class ItemModel {
 						itemBean.setItem_id(rs.getString("item_id"));
 						itemBean.setImg(rs.getString("img"));
 						getItems.add(itemBean);
-
 					}
 
 				} catch (Exception e) {

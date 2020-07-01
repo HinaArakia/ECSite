@@ -23,6 +23,7 @@ public class SortModel {
 			//SELECTを実行する
 			rs = DBUtil.execute(SQL);
 			rs.beforeFirst();
+			System.out.println(SQL);
 			while (rs.next()) {
 				ItemBean itemBean = new ItemBean();
 				itemBean.setItem_name(rs.getString("item_name"));
@@ -56,17 +57,10 @@ public class SortModel {
 			DBUtil.makeStatement();
 
 			//★高い順
-			String SQL = "SELECT * FROM `items` ORDER BY '" + item_price + "' DESC ";
-			System.out.println(SQL);
-			rs = DBUtil.execute(SQL);
-			System.out.println(SQL);
-
-			//★カテゴリ別で検索する
-			/*String CSQL = "SELECT * FROM `items` WHERE `item_category`='" + item_category + "'";
-			System.out.println(CSQL);
-			//SELECTを実行する
-			rs = DBUtil.execute(CSQL);*/
-
+			String HSQL = "SELECT * FROM `items` ORDER BY '" + item_price + "' DESC ";
+			System.out.println(HSQL);
+			rs = DBUtil.execute(HSQL);
+			System.out.println(HSQL);
 			while (rs.next()) {
 
 				ItemBean itemBean = new ItemBean();
@@ -85,16 +79,14 @@ public class SortModel {
 			DBUtil.closeConnection();
 		}
 		return getItems;
-
 	}
-
 	//低い
 	public List<ItemBean> low(String item_price) {
 		//public boolean category(String item_category) {
 		ResultSet rs = null;
 
 		//listをインスタンス化
-		List<ItemBean> getItems = new ArrayList<ItemBean>();
+		List<ItemBean> low = new ArrayList<ItemBean>();
 		try {
 
 			//DBに接続するための手続き
@@ -106,7 +98,6 @@ public class SortModel {
 			rs = DBUtil.execute(LSQL);
 			System.out.println(LSQL);
 
-
 			while (rs.next()) {
 
 				ItemBean itemBean = new ItemBean();
@@ -115,7 +106,7 @@ public class SortModel {
 				itemBean.setItem_category(rs.getString("item_category"));
 				itemBean.setItem_id(rs.getString("item_id"));
 				itemBean.setImg(rs.getString("img"));
-				getItems.add(itemBean);
+				low.add(itemBean);
 
 			}
 
@@ -124,7 +115,7 @@ public class SortModel {
 		} finally {
 			DBUtil.closeConnection();
 		}
-		return getItems;
+		return low;
 
 	}
 

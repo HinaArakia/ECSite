@@ -21,22 +21,39 @@ CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");
 <title>入力フォーム</title>
 </head>
 <body>
+	<jsp:include page="/views/header.jsp" />
 	<div class="Login-form">
 		<ul>
-			<h2>購入アイテム確認</h2>
-			以下の商品を購入します。
+			<div class="fontA">購入アイテム確認</div>
+
+
+<ul id="wrap">
+    <li class="box1 b"><p>確認</p></li>
+    <li class="box1 a"><p>購入完了</p></li>
+
+</ul>
+
+			<div class="fontB">以下の商品を購入します。</div>
+
 			<c:forEach items="${cartInBean}" var="cartInBean">
-				<form action="/ECSite/CartInServlet" method="get">
-					${cartInBean.cartIn_name}<br> ${cartInBean.cartIn_price}円 ×
-					${cartInBean.cartIn_quantity}個<br>
-					<br> 小計<span class="subTotal">${cartInBean.subTotal}</span>円<br>
-					<br>
+			${cartInBean.cartIn_name}
+
+
+
+				<div class="item">
+					<span>${cartInBean.cartIn_price}</span>円× <input type="text"
+						value="${cartInBean.cartIn_quantity}"${cartInBean.cartIn_quantity}">個
+					小計：<span class="subtotal">${cartInBean.subTotal}</span>
+				</div>
+
+
+				<form action="/ECSite/ItemDeleteServlet" method="post">
+					<!-- 商品削除 -->
+					<input type="hidden" name="cartIn_id"
+						value="${cartInBean.cartIn_id}"> <input type="submit"
+						value="削除" name="delete" class="button">
 				</form>
 
-				<!-- 商品削除 -->
-				<form action="/ECSite/ItemDeleteServlet" method="post">
-					<input type="submit" value="削除" name="delete" class="button">
-				</form>
 
 				<input type="hidden" name="item_name" value="${getItems.item_name} "
 					readonly />
@@ -44,11 +61,14 @@ CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");
 					value="${getItems.item_price} " readonly />
 				<input type="hidden" name="item_id" value="${getItems.item_id} "
 					readonly />
-
 			</c:forEach>
-			<div class="total">合計</div>
-			<form action=# name="form1" class="price"></form>
-			<div class="yen">円</div>
+
+			<div class="font">合計：</div>
+			<span id="total"></span>
+						<div class="font">円</div>
+
+
+
 			<form action="/ECSite/BuySuccesServlet" method="get">
 				<input type="submit" value="購入する" name="regist" class="button">
 				<input type="hidden" name="item_name" value="${getItems.item_name}" />
@@ -62,16 +82,62 @@ CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");
 		</ul>
 	</div>
 
+	<%--script type="text/javascript"
+		const targetElement = document.querySelector(".quantity");
+		targetElement.addEventListener("change",(event))=> {
+			const result = document.querySelector(".subtotal");
+			result.textContent = "イベント発火";
+		});
+	/script--%>
+
+
 	<script type="text/javascript">
-		let targetElements = document.querySelectorAll(".subTotal");
-		let total = 0;
-		for (let i = 0; i < targetElements.length; i++) {
-			total += Number(targetElements[i].textContent)
-		}
-		let element = document.createElement("p");
-		element.innerText = total;
-		document.form1.appendChild(element);
-	</script>
+    // class="item" という要素を全て取得
+    const targetElements = document.querySelectorAll(".item");
+
+    // 親要素を for 文で一つずつ取り出す。
+    for (let i = 0; i < targetElements.length; i++) {
+        /* 親要素内の input 要素を取り出し、イベントリスナを設定
+           (getElementsByTagName は HTMLCollection で返ってくるため index0 を指定) */
+        targetElements[i].getElementsByTagName("input")[0].addEventListener("change", (event) => {
+            // input の中身を書き換え、確定したタイミングで以下の処理が実行される
+            price = targetElements[i].getElementsByTagName("span")[0].textContent
+            count = targetElements[i].getElementsByTagName("input")[0].value
+            // 値段 * 個数の値で class="subtotal" の内容を書き換える
+            targetElements[i].getElementsByClassName("subtotal")[0].innerHTML = price * count
+
+            calcTotalPrice();
+        })
+    }
+</script>
+
+	<script type="text/javascript">
+
+ function calcTotalPrice(){
+    // subtotal というクラスの要素を全て取得し、配列で保持
+    let targetElem = document.querySelectorAll('.subtotal');
+    let total = 0;
+
+    for (let i = 0; i < targetElem.length; i++) {
+        // 取得した要素から内容を取り出し、total に足していく
+        // textContent は文字列を返すので、数値にキャストする
+        total += Number(targetElem[i].textContent)
+    };
+    // p要素を作成
+    //let element = document.createElement('span')
+    // 要素の内容に total を追加
+    //element.innerText = total + "円"
+    // id が total の要素の最後に p 要素を追加
+    let span = document.getElementById('total')
+    console.log(span)
+    span.textContent = total};
+
+ window.onload = function(){
+	 calcTotalPrice();
+ };
+</script>
+
+
 
 </body>
 </html>

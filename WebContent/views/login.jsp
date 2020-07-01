@@ -26,8 +26,6 @@
 <div class="Login-form"><ul>
 
 <h2>ユーザ名とパスワードを入力</h2>
-
-
 	<form action="LoginServlet" method="POST">
 	 <input type="text" name="username" placeholder=username >
 		<input type="password" name="password" placeholder="password" >
@@ -35,8 +33,6 @@
 	</form>
 	</ul>
 </div>
-
-
 	<p>
 		<c:out value="${loginBean.emsg}" />
 	</p>

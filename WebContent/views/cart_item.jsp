@@ -5,12 +5,6 @@
 <%@ page import="jp.co.aforce.beans.CartInBean"%>
 <%@ page import="java.util.ArrayList"%>
 
-<%--
-	ArrayList<CartInBean> cart_list = new ArrayList<CartInBean>();
-cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
---%>
-
-<%--	CartInBean cartInBean = (CartInBean) session.getAttribute("cartInBean");--%>
 <!doctype html>
 <html>
 <head>
@@ -24,25 +18,21 @@ cart_list = (ArrayList<CartInBean>) session.getAttribute("cartInBean");
 <title>カートの中身</title>
 </head>
 <body>
-	<h1>カートの中身</h1>
-
+	<jsp:include page="/views/header.jsp" />
+	<div class="fontA">カートの中身</div>
 	<c:forEach items="${cartInBean}" var="cartInBean">
 
-		<form action="/ECSite/CartInServlet" method="get">
-			${cartInBean.cartIn_name}<br>
-		  ${cartInBean.cartIn_price}円<br>
-			${cartInBean.cartIn_quantity}個
-		</form>
-
+	       ${cartInBean.cartIn_name}<br>
+		   ${cartInBean.cartIn_price}円<br>
+		   ${cartInBean.cartIn_quantity}個
+		<form action="/ECSite/CartInServlet" method="get"></form>
 	</c:forEach>
-
+	<div class="Login-form">
 		<input type="hidden" name="item_name" value="${getItems.item_name} "
 			readonly />
-		<input type="hidden" name="item_price" value="${getItems.item_price} "
-			readonly />
-		<input type="hidden" name="item_id" value="${getItems.item_id} "
-			readonly />
-	<div class="Login-form">
+			<input type="hidden" name="item_price"
+			value="${getItems.item_price} " readonly />
+			<input type="hidden" name="item_id" value="${getItems.item_id} " readonly />
 		<ul>
 			<button type="button" onclick="history.back()" class="button">買い物を続ける</button>
 

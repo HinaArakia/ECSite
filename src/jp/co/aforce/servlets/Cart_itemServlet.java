@@ -19,6 +19,9 @@ public class Cart_itemServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		System.out.println("get request");
+
+
+
 		//フォワード
 		RequestDispatcher rDispatcher = request.getRequestDispatcher("/views/cart_item.jsp");
 		rDispatcher.forward(request, response);

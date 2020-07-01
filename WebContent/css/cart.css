@@ -1,1 +1,79 @@
+*{
+	margin:0;
+	padding:0;
+}
+.button {
+	margin-right: 50px;
+	margin-top: 20px;
+	background: #2f0138;
+	color: #ffffff;
+	border-radius: 2px;
+	border: 2px solid #2f0138;
+	font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */
+	text-aligin: center;
+	font-size: 12pt; /* 文字サイズ */
+}
 
+.button:hover {
+	color: #ffffff; /*文字*/
+	background: #fff14d; /*背景*/
+	border: 1px solid #fff14d;
+}
+
+.font{
+	font: "刻ゴシック Light";
+}
+
+.headMenu{
+	background-color: black;
+	color: #ffffff;
+	font-family: "Nikkyou Sans";
+	height:40px;
+}
+
+p{
+
+	font: "刻ゴシック Light";
+}
+
+#wrap{width:100%;display:flex;justify-content: left;padding:0;list-style: none;}
+.box1{width:calc(100% / 3);margin:2px;}
+.box2{width:calc(100% / 4);margin:2px;}
+.box1:hover, .box2:hover{opacity:0.8;}
+p{text-align:left;color:#fff;font-weight:bold; font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */ }
+.a{background-color:#400040;}
+.b{background-color:#ff0000;}
+
+.fontA{
+	font-weight: bold;
+	font-family: "游ゴシック";
+	font-size: 30px;
+	color: #000040;
+}
+
+
+.fontB{
+	color:black;
+	font: 15px/15px "刻ゴシック Light"; /* 枠の指定 */
+
+}
+
+
+.box {
+  margin:0px;
+  border: #8000ff1px solid;
+  background:black;
+
+}
+
+
+ul.right {
+  text-align: right;
+}
+
+li {
+  display: inline;
+  padding: 0 10px;
+  border-right: #ddd 1px solid;
+
+}

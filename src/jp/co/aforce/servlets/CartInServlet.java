@@ -48,7 +48,6 @@ public class CartInServlet extends HttpServlet {
 		String img = request.getParameter("img");
 		int subTotal =Integer.parseInt(item_price)*Integer.parseInt(cart_quantity);
 		System.out.println(item_price+cart_quantity);
-
 		System.out.println(item_name);
 
 		// ★２、取り出した情報を CartInBean に格納する
@@ -71,6 +70,8 @@ public class CartInServlet extends HttpServlet {
 		// カートが無ければつくる
 		if (cart_list == null) {
 			cart_list = new ArrayList<>();
+			cart_list.add(cartInBean);
+			session.setAttribute("cartInBean", cart_list);
 		}
 		cart_list.add(cartInBean);
 		session.setAttribute("cartInBean", cart_list);

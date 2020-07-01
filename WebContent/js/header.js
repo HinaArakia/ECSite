@@ -1,5 +1,5 @@
 //メニューバー
-$(function () {
+/*$(function () {
 	  $(window).scroll(function () {
 	    if ($(this).scrollTop() >100) {
 	      $('#menu').addClass('fixed');
@@ -26,4 +26,4 @@ $(function(){
 //table
 $(document).ready(function() {
 	  $("#myTable").tablesorter();
-	});
+	});*/

@@ -11,10 +11,10 @@
 <head>
 <!-- CSS -->
 <link href="<c:url value="/css/TOP.css"/>" rel="stylesheet">
+<!-- ふぉんとあうぇさむ -->
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+	rel="stylesheet">
 
-<!-- jquery呼び出し -->
-<script type="text/javascript"
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -26,9 +26,9 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <title>ECサイトTOPページ</title>
 </head>
 <body>
+
 	<jsp:include page="/views/header.jsp" />
 <div class="fixed-bg bg01">
-<div class=font2><h2>サマーセール開催中</h2></div>
 	<div class=font><h1>  <br><br>TOP<br>SITE</h1></div>
 </div>
 
@@ -44,7 +44,9 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <div class="fixed-bg bg02">
 
 <div class="summer">
-<img src="img/summer.jpg" width="600" height="400">
+<a href="/ECSite/ItemServlet" class="summer">
+<img src="img/summer.jpg" width="750" height="450" >
+</a>
 </div>
 
 </div>

@@ -35,7 +35,7 @@
 
 <body>
 
-	<h1>会員情報変更</h1>
+	<h1>商品情報変更</h1>
 
 		<c:forEach items="${getItems}" var="getItems">
 
